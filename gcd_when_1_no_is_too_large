@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int gcd(int a,int b){
+  if(b==0){
+    return a;
+  }
+  return gcd(b,a%b);
+}
+int gcdmod(int a,string s){
+  int mod=0;
+  for(int i=0;i<s.length();i++){
+    mod=(mod*10+s[i]-'0')%a;
+  }
+  return mod;
+}
+int gcdlarge(int a,string s){
+  int g=gcdmod(a,s);
+  return gcd(g,a);
+}
+int main(){
+  int a,t;
+  string s;
+  cin>>t;
+  while(t--){
+    cin>>a>>s;
+    cout<<gcdlarge(a,s)<<endl;
+  }
+  return 0;
+}
